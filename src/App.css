@@ -2,8 +2,13 @@
 
 body{
 	height: 100vh;
-	background: linear-gradient(0deg, rgba(204,146,255,1) 0%, rgba(255,51,163,0.4) 100%);
+	background: rgb(204,146,255);
+	background: linear-gradient(0deg, rgba(204,146,255,1) 0%, rgba(255,51,163,0.4164040616246498) 100%);
 	text-align: center;
+}
+
+body *{
+	font-family: 'Permanent Marker', cursive;
 }
 
 h1{
@@ -13,51 +18,32 @@ h1{
 	font-size: 70px;
 }
 
-
-body *{
-	font-family: "Permanent Marker", sans-serif;
-}
-
-.win_msg, .lost_msg{
-	color: white;
-	font-size: 40px;
-	padding: 20px 0;
-}
-
-.lost_msg{
-	color: black;
-}
-
 #play_new_game{
-	margin-top: 40px;
 	background: transparent;
-	color: white;
-	font-size: 30px;
 	border: 5px double white;
-	padding: 10px 20px;	
-}
-
-
-#current_word span{
-	font-size: 40px;
-	border-bottom: 3px solid white;
-	margin: 0 5px;
-	padding: 5px 20px;
+	font-size: 30px;
 	color: white;
-}
-#current_word span.notfinded{
-	color: rgba(255,255,255,0.3);
-}
-#current_word span.lost{
-	color: red;
+	padding: 10px 20px;
+	margin-top: 30px;
+	cursor: pointer;
 }
 
 
+/*
+*
+*	DRAW LIFE
+*
+*/
 #life{
-	margin-top: 50px;
+	margin-top: 30px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+#life .heart.empty{
+	opacity: 0.3;
 }
 
-#life .heart {
+.heart {
 	background-color: white;
 	display: inline-block;
 	height: 20px;
@@ -68,8 +54,8 @@ body *{
 	width: 20px;
 }
 
-#life .heart:before,
-#life .heart:after {
+.heart:before,
+.heart:after {
 	content: "";
 	background-color: white;
 	border-radius: 50%;
@@ -78,40 +64,91 @@ body *{
 	width: 20px;
 }
 
-#life .heart:before {
+.heart:before {
 	top: -10px;
 	left: 0;
 }
 
-#life .heart:after {
+.heart:after {
 	left: 10px;
 	top: 0;
 }
 
-#life .heart.empty {
-	opacity: 0.4;
+/*
+*
+*	END GAME MESSAGE
+*
+*/
+#win_message{
+	font-size: 40px;
+	color: white;
+	padding: 30px;
+}
+#lost_message{
+	font-size: 40px;
+	color: black;
+	padding: 30px;
 }
 
+/*
+*
+*	WORD TO FIND
+*
+*/
+#wrapper_new_word{
+	border: 1px solid transparent;
+	width: auto;
+	text-align: center;
+	margin: 0 auto;
+}
 
-
-#keyboard{
-	margin-top: 30px;
-	max-width: 600px;
+#wrapper_new_word span{
 	display: inline-block;
+	border-bottom: 3px solid white;
+	font-size: 40px;
+	padding: 5px 20px;
+	color: white;
+	margin: 0 5px;
+}
+
+#wrapper_new_word span.notfinded{
+	color: rgba(255,255,255,0.3);
+}
+
+#wrapper_new_word span.lost{
+	color: black;
+}
+
+#wrapper_new_word::after{
+	clear: both;
+	content: " ";
+	min-height: 1px;
+	display:block;
+}
+
+/*
+*
+*	KEYBOARD PART
+*
+*/
+#keyboard{
+	border: 1px solid transparent;
+	width: 90%;
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 30px;
 }
 
 #keyboard button{
-	background: transparent;
-	cursor: pointer;
 	color: white;
-	padding: 5px 20px;
-	border: 0;
-	margin: 5px;
+	background: transparent;
+	border: none;
 	font-size: 40px;
-	display: inline-block;
-	width: 30px;
-	text-align: center;
+	padding: 5px 20px;
+	cursor:pointer;
 }
-#keyboard button.used{
-	opacity: 0.5;
+
+#keyboard .used{
+	opacity: 0.3;
 }

@@ -4,7 +4,7 @@ import './App.css'
 const CurrentWord = ({ currentWord, usedLetter, win }) => {
 
 	return (
-		<div id="current_word">
+		<div id="wrapper_new_word">
 			{
 				currentWord.split('').map(
 					(letter, key) => {
